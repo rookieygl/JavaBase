@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+# Created by .ignore support plugin (hsz.mobi)
+/.git
+/.idea
+.mvn
+/target
+/*.iml
+/mvnw
+/mvnw.cmd
