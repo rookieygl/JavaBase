@@ -1,4 +1,4 @@
-package com.ygl.basetype.params;
+package com.ygl.base.params;
 
 public class Params {
     private static int intStatic = 222;

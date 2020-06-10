@@ -1,4 +1,4 @@
-package com.ygl.basetype;
+package com.ygl.base.random;
 
 import java.util.Random;
 
