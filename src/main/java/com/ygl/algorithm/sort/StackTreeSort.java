@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @TIME: 23:00
  * @DESC: open stack
  **/
-public class StackSort {
+public class StackTreeSort {
     public static void main(String[] args) {
         int[] arr = new int[]{1, 3, 2, 8, 9, 10, 6};
         heapSort(arr);
