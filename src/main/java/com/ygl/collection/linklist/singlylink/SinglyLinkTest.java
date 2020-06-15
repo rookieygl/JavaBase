@@ -2,6 +2,15 @@ package com.ygl.collection.linklist.singlylink;
 
 import java.util.LinkedList;
 
+class SinglyNode<E> {
+	public E value;
+	public SinglyNode<E> nextNode;
+
+	public SinglyNode(E value) {
+		this.value = value;
+	}
+}
+
 /**
  * @Author: open stack
  * @Author: ygl
@@ -11,6 +20,17 @@ import java.util.LinkedList;
 public class SinglyLinkTest<E> {
 
 	private static SinglyNode head; // 头节点
+
+	public static void main(String[] args) {
+		SinglyLinkTest<Integer> singlyLinkTest = new SinglyLinkTest<>();
+		singlyLinkTest.addNode(1);
+		singlyLinkTest.addNode(2);
+		singlyLinkTest.addNode(3);
+		SinglyNode singlyNode = new SinglyNode(3);
+		singlyLinkTest.printListReversely(head);
+		LinkedList linkedList = new LinkedList();
+		linkedList.getFirst();
+	}
 
 	/**
 	 * 向链表中插入数据
@@ -131,7 +151,6 @@ public class SinglyLinkTest<E> {
 		return this.head;
 	}
 
-
 	/**
 	 * 查找单链表的中间节点
 	 *
@@ -154,16 +173,5 @@ public class SinglyLinkTest<E> {
 			System.out.println("printListReversely:" + pListHead.value);
 		}
 	}
-	//***************研究*********************//
 
-	public static void main(String[] args) {
-		SinglyLinkTest<Integer> singlyLinkTest = new SinglyLinkTest<>();
-		singlyLinkTest.addNode(1);
-		singlyLinkTest.addNode(2);
-		singlyLinkTest.addNode(3);
-		SinglyNode singlyNode = new SinglyNode(3);
-		singlyLinkTest.printListReversely(head);
-		LinkedList linkedList = new LinkedList();
-		linkedList.getFirst();
-	}
 }

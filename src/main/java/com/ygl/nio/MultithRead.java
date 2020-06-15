@@ -1,5 +1,7 @@
 package com.ygl.nio;
 
+import org.springframework.core.io.ClassPathResource;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -17,7 +19,6 @@ import java.util.concurrent.Executors;
  * @Desc:
  */
 public class MultithRead {
-	private static String path = "D:\\Code\\data\\1234.txt";
 	private int threadNum = 3;//线程数,默认为3
 	private String filePath;//文件路径
 	private static int bufSize = 1024;//缓冲区大小,默认为1024
@@ -32,7 +33,12 @@ public class MultithRead {
 	}
 
 	public static void main(String[] args) {
-		MultithRead nioTest = new MultithRead(path,bufSize,3);
+		MultithRead nioTest = null;
+		try {
+			nioTest = new MultithRead(new ClassPathResource("/name.txt").getURI().getPath(), bufSize, 3);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		nioTest.startRead();
 	}
 
@@ -53,7 +59,7 @@ public class MultithRead {
 				}
 				RandomAccessFile accessFile = new RandomAccessFile(filePath, "r");
 				FileChannel inch = accessFile.getChannel();
-				threadPool.execute(new MultiThreadReader(inch, startIndex, subSize));
+				threadPool.execute(new ThreadReader(inch, startIndex, subSize));
 			}
 			threadPool.shutdown();
 		} catch (FileNotFoundException e1) {
@@ -76,12 +82,12 @@ public class MultithRead {
 	 *
 	 * @author zyh
 	 */
-	public class MultiThreadReader implements Runnable {
+	public class ThreadReader implements Runnable {
 		private FileChannel channel;
 		private long startIndex;
 		private long rSize;
 
-		public MultiThreadReader(FileChannel channel, long startIndex, long rSize) {
+		public ThreadReader(FileChannel channel, long startIndex, long rSize) {
 			this.channel = channel;
 			this.startIndex = startIndex > 0 ? startIndex - 1 : startIndex;
 			this.rSize = rSize;
@@ -129,17 +135,17 @@ public class MultithRead {
 								lineCount++;
 								temp = new byte[0];
 								//处理数据
-								if (line!=null){
+								if (line != null) {
 									if (startIndex != 0) {//如果不是第一个数据段
 										if (lineCount == 1) {
 											if (isWholeLine) {//当且仅当第一行为完整行时才处理
-												System.out.println(new String(line,encode));
+												System.out.println(new String(line, encode));
 											}
 										} else {
-											System.out.println(new String(line,encode));
+											System.out.println(new String(line, encode));
 										}
 									} else {
-										System.out.println(new String(line,encode));
+										System.out.println(new String(line, encode));
 									}
 								}
 
@@ -161,7 +167,7 @@ public class MultithRead {
 				}
 				//兼容最后一行没有换行的情况
 				if (temp.length > 0) {
-					System.out.println(new String(temp,encode));
+					System.out.println(new String(temp, encode));
 				}
 			} catch (IOException e) {
 				e.printStackTrace();

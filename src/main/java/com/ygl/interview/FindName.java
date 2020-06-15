@@ -1,5 +1,7 @@
 package com.ygl.interview;
 
+import org.springframework.core.io.ClassPathResource;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,7 +16,7 @@ import java.util.stream.Stream;
  * @Desc:
  */
 public class FindName {
-	private static String filePath = "src/main/resource/name.txt";
+	private static String filePath = "/";
 
 	public static void main(String[] args) {
 		readNameFile();
@@ -27,7 +29,8 @@ public class FindName {
 		Stream<String> nameStream = null;
 		try {
 			//NIO读取文本
-			nameStream = Files.lines(Paths.get(filePath));
+			ClassPathResource classPathResource = new ClassPathResource(filePath+"name.txt");
+			nameStream = Files.lines(Paths.get(classPathResource.getURI()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

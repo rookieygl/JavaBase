@@ -1,4 +1,4 @@
-package com.ygl.collection.tree;
+package com.ygl.collection.tree.demo;
 
 import java.util.ArrayList;
 import java.util.List;
