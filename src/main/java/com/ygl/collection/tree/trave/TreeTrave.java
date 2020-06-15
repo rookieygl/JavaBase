@@ -1,4 +1,4 @@
-package com.ygl.collection.tree.demo;
+package com.ygl.collection.tree.trave;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +31,11 @@ class TreeNode {
     }
 }
 
-public class TreeTest {
+public class TreeTrave {
     public static List<Integer> list = new ArrayList<>();
 
     public static void main(String[] args) {
-        TreeTest treeTest = new TreeTest();
+        TreeTrave treeTest = new TreeTrave();
         TreeNode treeNode = new TreeNode(1);
         TreeNode left = new TreeNode(2);
         TreeNode right = new TreeNode(3);
