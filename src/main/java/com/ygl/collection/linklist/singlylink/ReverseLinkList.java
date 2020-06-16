@@ -85,4 +85,9 @@ public class ReverseLinkList {
 		}
 		return pre;
 	}
+
+	public static Node reversePosition(Node node, int start, int end) {
+		return node;
+	}
+
 }

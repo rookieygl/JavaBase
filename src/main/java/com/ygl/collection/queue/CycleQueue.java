@@ -1,62 +1,78 @@
 package com.ygl.collection.queue;
 
 
-import java.util.ArrayList;
-
 /**
  * @Project: ydzy-report
  * @Author: ygl
  * @Date: 2020/6/12 14:15
  * @Desc:
  */
-public class CycleQueue {
-    private int[] queue; //队列容器
-    private int head;
-    private int tail;
-    private boolean empty = true;
+public class CycleQueue<E> {
+	private E[] queue; //队列容器
+	private int head;
+	private int tail;
 	private static final int DEFAULT_CAPACITY = 10;
+
 	public CycleQueue() {
-		this.queue = new int[DEFAULT_CAPACITY];
+		this(DEFAULT_CAPACITY);
 	}
 
-    public CycleQueue(int initialCapacity) {
-		if (initialCapacity>0){
-			this.queue = new int[initialCapacity];
-		}else {
-			this.queue = new int[DEFAULT_CAPACITY];
+	/**
+	 * 默认有参构造器
+	 *
+	 * @param initialCapacity
+	 */
+	public CycleQueue(int initialCapacity) {
+		if (initialCapacity > 0) {
+			this.queue = (E[]) new Object[initialCapacity];
+		} else {
+			this.queue = (E[]) new Object[DEFAULT_CAPACITY];
 		}
-    }
+	}
 
 	public static void main(String[] args) {
-		CycleQueue cycleQueue = new CycleQueue();
-		cycleQueue.offer(1);
-		cycleQueue.offer(2);
-		cycleQueue.offer(3);
-		int[] queue = cycleQueue.queue;
-		for (int i = 0; i < queue.length; i++) {
-//			System.out.println(queue[i]);
-		}
-
+		CycleQueue<Object> cycleQueue = new CycleQueue<>();
+		//cycleQueue.offer(1);
+		//cycleQueue.offer(2);
+		//cycleQueue.offer(3);
+		//cycleQueue.offer(3);
+		//cycleQueue.offer(3);
+		//cycleQueue.offer(3);
+		//cycleQueue.offer(3);
+		//cycleQueue.offer(3);
+		//cycleQueue.offer(3);
+		//cycleQueue.offer(3);
 		System.out.println(cycleQueue.pook());
+		//System.out.println(cycleQueue.pook());
+		//System.out.println(cycleQueue.pook());
+		//System.out.println(cycleQueue.pook());
 	}
 
-    public int pook() {
-        if (empty) {
-            return 0;
-        }
-        int headEle = queue[head];
-		head = (head + 1) & (queue.length - 1);
-        return headEle;
-    }
+	/**
+	 * 出队
+	 *
+	 * @return
+	 */
+	public E pook() {
+		if (tail == tail) {
+			throw new IllegalArgumentException("queue is empty");
+		}
+		E headEle = queue[head];
+		queue[head] = null;
+		head = (head + 1) % (queue.length - 1);
+		return headEle;
+	}
 
-    public int offer(int element) {
-        if (!empty && head == tail + 1) {
-            throw new IndexOutOfBoundsException("queue is full");
-        }
-        queue[tail] = element;
-        tail = (tail+1) %(queue.length);
-        return element;
-    }
-
-
+	/**
+	 * 入队
+	 *
+	 * @param element
+	 */
+	public void offer(E element) {
+		if ((tail + 1) % queue.length == head) {
+			throw new IndexOutOfBoundsException("queue is full");
+		}
+		queue[tail] = element;
+		tail = (tail + 1) % (queue.length);
+	}
 }
