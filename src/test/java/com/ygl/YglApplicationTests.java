@@ -1,11 +1,30 @@
 package com.ygl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ygl.bean.Person;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
 
-@SpringBootTest
+@SpringBootTest(classes = YglApplication.class)
+@EnableAutoConfiguration
+@RunWith(SpringRunner.class)
+@Slf4j
 class YglApplicationTests {
 
 	/**
@@ -55,5 +74,46 @@ class YglApplicationTests {
         }
 	}
 
+	@Test
+	void mapToPo() throws Exception {
+		ClassPathResource classPathResource = new ClassPathResource("/person.json");
+		String stringCollect = Files.lines(Paths.get(classPathResource.getURI())).collect(Collectors.joining());
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		Class<?> clazz = Class.forName("com.ygl.bean.Person");
+		Class<?> utilClazz = Class.forName("com.ygl.bean.PersonnUtil");
+		Object o = objectMapper.readValue(stringCollect, Class.forName("com.ygl.bean.Person"));
+
+		//Field field = clazz.getDeclaredField("age");
+		//String fieldName = field.getName();
+		//String upperChar = fieldName.substring(0,1).toUpperCase();
+		//String anotherStr = fieldName.substring(1);
+		//String methodName = "get" + upperChar + anotherStr;
+
+		Method getMethod = utilClazz.getMethod("printPerson",clazz);
+		Parameter[] parameters = getMethod.getParameters();
+		for (int i = 0; i < parameters.length; i++) {
+			Class<?> type = parameters[i].getType();
+
+			if (o.getClass().getName().equalsIgnoreCase(type.getName())){
+				System.out.println(type.getName());
+			}
+		}
+
+
+
+		getMethod.setAccessible(true);
+		Object resultValue = getMethod.invoke(utilClazz.newInstance(),o);
+
+
+		System.out.println(resultValue);
+		//String fieldName = field.getName();
+		//String upperChar = fieldName.substring(0,1).toUpperCase();
+		//String anotherStr = fieldName.substring(1);
+		//String methodName = "get" + upperChar + anotherStr;
+		//Method getMethod = paramClazz.getMethod(methodName);
+		//getMethod.setAccessible(true);
+		//Object resultValue = getMethod.invoke(paramClazz);
+	}
 
 }
