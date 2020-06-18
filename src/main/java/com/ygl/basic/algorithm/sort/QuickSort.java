@@ -1,13 +1,16 @@
 package com.ygl.basic.algorithm.sort;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 
+@Slf4j
 public class QuickSort {
 	private static int count = 0;
+
 	public static void main(String[] args) {
 
-		//int[] arr = {30,7,1,8,3,2,20};
-		int[] arr = {7,6,5,4,3,2,1};
+		int[] arr = {3, 7, 6, 5, 4, 2, 1,};
 		QKSort(arr, 0, arr.length - 1);
 	}
 
@@ -52,11 +55,16 @@ public class QuickSort {
 			arr[right] = arr[left];
 
 		}
-		//基元重回数组
+		//循环后right = left
+		//循环后的left的值正是temp的位置，为arr[left]的值是temp的下一个元素 必然是重复的
+		//此时的数据中并没有temp的位置 temp赋值给left做基元, 基元作为边界将数组分为两边。
+
+
+		//基元赋值给left 重回数组
 		arr[left] = temp;
 		QKSort(arr, start, left - 1);
 		QKSort(arr, left + 1, end);
-		System.out.println(++count);
-		System.out.println(Arrays.toString(arr));
+		log.info(++count + "");
+		log.info(Arrays.toString(arr));
 	}
 }
