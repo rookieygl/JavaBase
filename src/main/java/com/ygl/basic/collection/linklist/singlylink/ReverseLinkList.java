@@ -1,24 +1,24 @@
 package com.ygl.basic.collection.linklist.singlylink;
 
-class Node {
-	public int data;// 数据域
-	public Node nextNode;// 指针域
-
-	public Node(int data) {
-		this.data = data;
-	}
-
-}
 
 public class ReverseLinkList {
+	static class Node {
+		public int data;// 数据域
+		public Node nextNode;// 指针域
+
+		public Node(int data) {
+			this.data = data;
+		}
+
+	}
+
 	public static void main(String[] args) {
 		Node head = new Node(1);
 		insert(head, new Node(2));
 		insert(head, new Node(3));
-		insert(head, new Node(2));
-		insert(head, new Node(1));
-		Node rnode = reverseByList(head);
-		while (rnode.nextNode != null) {
+		insert(head, new Node(4));
+		Node rnode = reverseByRecursive(head);
+		while (rnode != null) {
 			System.out.println(rnode.data);
 			rnode = rnode.nextNode;
 		}
