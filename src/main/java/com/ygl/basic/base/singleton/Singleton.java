@@ -11,80 +11,84 @@ package com.ygl.basic.base.singleton;
  * 饿汉式 基本不会使用
  */
 class HuangerSingleton {
-    private static HuangerSingleton huangerSingleton = new HuangerSingleton();
+	private static HuangerSingleton huangerSingleton = new HuangerSingleton();
 
-    //构造方法私有化 只能通过getInstance获取
-    private HuangerSingleton() {
-    }
+	//构造方法私有化 只能通过getInstance获取
+	private HuangerSingleton() {
+	}
 
-    public static HuangerSingleton getInstance() {
-        return huangerSingleton;
-    }
+	public static HuangerSingleton getInstance() {
+		return huangerSingleton;
+	}
 
-    //默认权限修饰符是default
-    void getFunction() {
+	//默认权限修饰符是default
+	void getFunction() {
 
-    }
+	}
 }
 
 /**
  * 线程安全，调用效率不高，但是能延时加载
  */
 class LazySingleton {
-    private static LazySingleton lazySingleton;
+	private static LazySingleton lazySingleton;
 
-    private LazySingleton() {
+	private LazySingleton() {
 
-    }
+	}
 
-    public static synchronized LazySingleton getInstance() {
-        if (lazySingleton == null) {
+	public static synchronized LazySingleton getInstance() {
+		if (lazySingleton == null) {
 
-            lazySingleton = new LazySingleton();
-        }
-        return lazySingleton;
-    }
+			lazySingleton = new LazySingleton();
+		}
+		return lazySingleton;
+	}
 
 }
 
 //双重锁判断机制（由于JVM底层模型原因，偶尔会出问题，不建议使用）
 class DoubleCheckSingleton {
-    //volatile 保证有序
-    private volatile static DoubleCheckSingleton doubleCheckSingleton;
+	//volatile 保证有序
+	private volatile static DoubleCheckSingleton doubleCheckSingleton;
 
-    private DoubleCheckSingleton() {
-    }
+	private DoubleCheckSingleton() {
+	}
 
-    public static DoubleCheckSingleton getInstance() {
-        if (doubleCheckSingleton == null) {
-            synchronized (DoubleCheckSingleton.class) {
-                if (doubleCheckSingleton == null) {
-                    doubleCheckSingleton = new DoubleCheckSingleton();
-                }
+	public static DoubleCheckSingleton getInstance() {
+		if (doubleCheckSingleton == null) {
+			synchronized (DoubleCheckSingleton.class) {
+				if (doubleCheckSingleton == null) {
+					doubleCheckSingleton = new DoubleCheckSingleton();
+				}
 
-            }
-        }
-        return doubleCheckSingleton;
-    }
+			}
+		}
+		return doubleCheckSingleton;
+	}
 }
 
 /**
  * 静态内部类实现模式（线程安全，调用效率高，可以延时加载）
  */
 class StaticSingleton {
-    private static class StaticSingletonInstance {
-        private static final StaticSingleton STATIC_SINGLETON = new StaticSingleton();
-    }
+	private static class StaticSingletonInstance {
+		private static final StaticSingleton STATIC_SINGLETON = new StaticSingleton();
+	}
 
-    private StaticSingleton() {
-    }
+	private StaticSingleton() {
+	}
 
-    public static StaticSingleton getInstance() {
-        return StaticSingletonInstance.STATIC_SINGLETON;
-    }
+	public static StaticSingleton getInstance() {
+		return StaticSingletonInstance.STATIC_SINGLETON;
+	}
 
 }
 
+/**
+ * 获取单例
+ */
 public class Singleton {
-    HuangerSingleton huangerSingleton = HuangerSingleton.getInstance();
+	private HuangerSingleton huangerSingleton = HuangerSingleton.getInstance();
+	private StaticSingleton staticSingleton = StaticSingleton.getInstance();
 }

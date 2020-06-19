@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+  <property>
+    <name>fs.default.name</name>
+    <value>hdfs://RD2-SVR234:9000</value>
+  </property>
+
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/data/hadoop/tmp</value>
+  </property>
+  <!---->
+  <property>
+    <name>dfs.namenode.rpc-address</name>
+    <value>192.168.8.233:9000</value>
+  </property>
+<!--
+  <property>
+    <name>topology.script.file.name</name>
+    <value>/home/hbase/hadoop-1.2.1/conf/RackAware.py</value>
+  </property>
+  <property>
+    <name>topology.script.number.args</name>
+    <value>20</value>
+  </property>
+-->
+
+</configuration>

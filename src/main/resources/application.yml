@@ -1,1 +1,11 @@
+server:
+  port: 8080
+
+logging:
+  configclasspath: logback.xml
+
+hdfs:
+  path: hdfs://localhost:9000
+  username: linhaiy
+
 
