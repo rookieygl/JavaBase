@@ -1,4 +1,4 @@
-package com.ygl.basic.concurrency.lock;
+package com.ygl.basic.concurrency.lock.synchronize;
 
 import java.util.concurrent.TimeUnit;
 

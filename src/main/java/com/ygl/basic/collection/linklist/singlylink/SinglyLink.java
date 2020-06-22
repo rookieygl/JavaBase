@@ -1,6 +1,7 @@
 package com.ygl.basic.collection.linklist.singlylink;
 
 import java.util.LinkedList;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 /**
@@ -31,14 +32,13 @@ public class SinglyLink<E> {
         System.out.println(node.value);
     }
 
-
     public static Node getNode(Node node, int index) {
         for (int i = index; i > 0; i--) {
             if (node != null) {
                 node = node.nextNode;
             }
         }
-        return node;
+         return node;
     }
 
     /**
