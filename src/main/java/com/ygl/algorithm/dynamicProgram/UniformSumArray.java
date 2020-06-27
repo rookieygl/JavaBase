@@ -1,4 +1,4 @@
-package com.ygl.basic.algorithm.dynamicProgram;
+package com.ygl.algorithm.dynamicProgram;
 
 import java.util.Arrays;
 

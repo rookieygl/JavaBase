@@ -1,4 +1,4 @@
-package com.ygl.basic.concurrency.creathread;
+package com.ygl.basic.concurrency.thread.creathread;
 
 class RunableTest implements Runnable {
     @Override

@@ -1,4 +1,4 @@
-package com.ygl.basic.interview;
+package com.ygl.interview;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,6 @@
-package com.ygl.basic.algorithm.sort;
+package com.ygl.algorithm.sort;
 
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.Arrays;
 
 @Slf4j
@@ -64,6 +63,7 @@ public class QuickSort {
 		arr[left] = temp;
 		QKSort(arr, start, left - 1);
 		QKSort(arr, left + 1, end);
+		//输出
 		log.info(++count + "");
 		log.info(Arrays.toString(arr));
 	}

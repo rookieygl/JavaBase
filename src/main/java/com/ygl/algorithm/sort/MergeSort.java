@@ -1,4 +1,4 @@
-package com.ygl.basic.algorithm.sort;
+package com.ygl.algorithm.sort;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.ygl.basic.algorithm.search;
+package com.ygl.algorithm.search;
 
 /**
  * @Author: ydzy-report

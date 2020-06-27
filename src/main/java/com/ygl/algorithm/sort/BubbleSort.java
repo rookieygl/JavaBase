@@ -1,4 +1,4 @@
-package com.ygl.basic.algorithm.sort;
+package com.ygl.algorithm.sort;
 
 public class BubbleSort {
     public static void main(String[] args) {

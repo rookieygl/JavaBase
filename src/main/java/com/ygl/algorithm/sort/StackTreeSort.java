@@ -1,4 +1,4 @@
-package com.ygl.basic.algorithm.sort;
+package com.ygl.algorithm.sort;
 
 import java.util.Arrays;
 
@@ -7,10 +7,14 @@ import java.util.Arrays;
  * @DATE: 2020/6/1
  * @TIME: 23:00
  * @DESC: open stack
+ *
+ * 堆排序的数据结构是根堆
+ *
+ * 从小到大排 就是
  **/
 public class StackTreeSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int[] arr = new int[]{7, 2, 10, 4, 5, 6, 1};
         heapSort(arr);
         System.out.println(Arrays.toString(arr));
     }
@@ -22,17 +26,23 @@ public class StackTreeSort {
      */
     public static void heapSort(int[] array) {
         //把无序数组构建最大堆
-        for (int i = (array.length - 1) / 2; i >= 0; i--) {
+        //寻找非叶子节点，只有非叶子节点需要调整
+        //根据二叉树的特性，非叶子节点是n/2
+        for (int i = (array.length) / 2 - 1; i >= 0; i--) {
             downAdjust(array, i, array.length);
         }
         //输出最大堆
         System.out.println(Arrays.toString(array));
 
-        //循环删除堆顶元素，移到集合底部，调整结束就是排序好的数组
+        //倒叙遍历数组，循环删除堆顶元素，与数组尾部元素交换，
+        //调整结束就是排序好的数组
         for (int i = array.length - 1; i > 0; i--) {
+            //尾部元素和头部元素交换
             int temp = array[i];
             array[i] = array[0];
             array[0] = temp;
+
+            //下沉调整最大堆
             downAdjust(array, 0, i);
         }
     }
@@ -48,17 +58,21 @@ public class StackTreeSort {
         //temp 保存父节点的值 用于最后赋值
         int temp = array[parentIndex];
         int childIndex = 2 * parentIndex + 1;
+
+        //防止角标越界
         while (childIndex < length) {
             //如果有右孩子，且左孩子大于右孩子的值，则定位到右孩子
             if (childIndex + 1 < length && array[childIndex + 1] > array[childIndex]) {
                 childIndex++;
             }
+
             //如果父节点大与任何一个孩子的值，则直接跳出
             if (temp >= array[childIndex]) {
                 break;
             }
 
-            //赋值
+            //如果父节点不是最大，就和当前子节点交换位置
+            //一次能确定一个父节点和两个子节点
             array[parentIndex] = array[childIndex];
             parentIndex = childIndex;
             childIndex = 2 * childIndex + 1;

@@ -1,4 +1,4 @@
-package com.ygl.basic.interview;
+package com.ygl.interview;
 
 import org.springframework.core.io.ClassPathResource;
 

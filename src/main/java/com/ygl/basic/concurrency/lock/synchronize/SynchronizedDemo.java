@@ -3,7 +3,7 @@ package com.ygl.basic.concurrency.lock.synchronize;
 import java.util.concurrent.TimeUnit;
 
 public class SynchronizedDemo {
-
+    
     public static void main(String[] args) throws InterruptedException{
         SynchronizedDemo synchronizedDemo = new SynchronizedDemo();
         Thread t1 = new Thread(synchronizedDemo::synchMethod,"T1");

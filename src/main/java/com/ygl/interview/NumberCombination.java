@@ -1,4 +1,4 @@
-package com.ygl.basic.interview;
+package com.ygl.interview;
 
 import java.util.*;
 import java.util.stream.Collectors;
