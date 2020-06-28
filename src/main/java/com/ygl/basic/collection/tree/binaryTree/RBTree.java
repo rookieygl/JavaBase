@@ -1,4 +1,4 @@
-package com.ygl.basic.collection.tree.binarytree;
+package com.ygl.basic.collection.tree.binaryTree;
 
 /**
  * @Project: ydzy-report

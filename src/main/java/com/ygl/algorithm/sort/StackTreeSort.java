@@ -10,7 +10,11 @@ import java.util.Arrays;
  *
  * 堆排序的数据结构是根堆
  *
- * 从小到大排 就是
+ * 从小到大排 就是大根堆。从大到小，就是小根堆
+ *
+ * 大根堆存在 arr[i]>=arr[2i+1] && arr[2i+2]
+ *
+ * 左右节点占一个元素，为空也占位
  **/
 public class StackTreeSort {
     public static void main(String[] args) {
