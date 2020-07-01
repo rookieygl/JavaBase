@@ -9,9 +9,9 @@ import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
  * @DATE: 2020/6/27 18:39
  * @DESC: rookie stronger
  * <p>
- * 链表环问题
+ * 单向链表环问题
  **/
-public class LiinkListRing {
+public class LinkListRing {
     static class Node {
         private Node nextNode;
         private int val;
@@ -67,6 +67,12 @@ public class LiinkListRing {
         return false;
     }
 
+    /**
+     * 计算环长
+     *
+     * @param header 链表头
+     * @return
+     */
     private static int countCycleLength(Node header) {
         //环长
         int length = 0;

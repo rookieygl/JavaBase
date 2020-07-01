@@ -5,7 +5,8 @@ package com.ygl.algorithm.linklist;
  * @Author: rookie_ygl
  * @DATE: 2020/6/27 15:51
  * @DESC: rookie stronger
- * 回文链表
+ *
+ * 判断单向链表是否是 回文链表
  **/
 public class PalindromeLinkList {
     static class Node {
@@ -67,8 +68,8 @@ public class PalindromeLinkList {
     /**
      * 插入链表
      *
-     * @param head
-     * @param val
+     * @param head 链表头
+     * @param val 节点值
      */
     public static void insertNode(Node head, int val) {
         Node node = new Node(val);
@@ -82,7 +83,7 @@ public class PalindromeLinkList {
     /**
      * 反转链表
      *
-     * @param node
+     * @param node 链表头
      * @return
      */
     public static Node reverseLink(Node node) {
