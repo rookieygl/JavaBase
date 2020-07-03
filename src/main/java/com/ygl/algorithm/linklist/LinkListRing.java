@@ -1,8 +1,5 @@
 package com.ygl.algorithm.linklist;
 
-import com.sun.corba.se.spi.ior.iiop.IIOPFactories;
-import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
-
 /**
  * @Project open sources
  * @Author: rookie_ygl
