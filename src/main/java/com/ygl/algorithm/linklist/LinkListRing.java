@@ -54,7 +54,7 @@ public class LinkListRing {
 
         while (secondNode != null && secondNode.nextNode != null) {
             //环只存在一个点
-            //只需要第二个指针比第一个快即可
+            //            //只需要第二个指针比第一个快即可
             //只要有环，第二个总会多走一定的圈数赶上第一个节点
             firstNode = firstNode.nextNode;
             secondNode = secondNode.nextNode.nextNode;
@@ -68,7 +68,46 @@ public class LinkListRing {
     }
 
     /**
+     * 寻找入环点
+     *
+     * 根据计算公式得出：
+     *  相遇点到入环点的距离和头节点到入环点的距离相等
+     * @param header 链表头
+     */
+    public static Node findCyceleNode(Node header) {
+
+        Node insertCycle = null;
+        if (isCycle(header)) {
+            Node firstNode = header;//慢指针
+            Node secondNode = header;//快指针
+
+            //获取相遇点的节点
+            while (secondNode != null && secondNode.nextNode != null) {
+                firstNode = firstNode.nextNode;
+                secondNode = secondNode.nextNode.nextNode;
+                if (firstNode == secondNode) {
+                    //到相遇点，让一个指针回到链表头，这里重置快指针
+                    firstNode = header;
+                    break;
+                }
+            }
+
+            //获取相遇点，重置头指针后，让快慢指针一样的速度相遇，即可得到入环点
+            while (secondNode != null && secondNode.nextNode != null) {
+                firstNode = firstNode.nextNode;
+                secondNode = secondNode.nextNode;
+                if (firstNode == secondNode) {
+                    insertCycle = firstNode;
+                    break;
+                }
+            }
+        }
+        return insertCycle;
+    }
+
+    /**
      * 计算环长
+     *  快慢指针，第二次相遇即可得出环长
      *
      * @param header 链表头
      * @return
@@ -80,9 +119,10 @@ public class LinkListRing {
             //环圈数
             int round = 0;
 
-            Node firstNode = header;
-            Node secondNode = header;
+            Node firstNode = header;//快指针
+            Node secondNode = header;//慢指针
 
+            //让快慢指针差速移动，计算链表环
             while (secondNode != null && secondNode.nextNode != null) {
                 //在第一圈后，开始计算环长
                 if (round == 1) {
@@ -100,41 +140,5 @@ public class LinkListRing {
             }
         }
         return length;
-    }
-
-    /**
-     * 寻找入环点
-     *
-     * @param header 链表头
-     */
-    public static Node findCyceleNode(Node header) {
-
-        Node insertCycle = null;
-        if (isCycle(header)) {
-            Node firstNode = header;
-            Node secondNode = header;
-
-            //获取相遇点的节点
-            while (secondNode != null && secondNode.nextNode != null) {
-                firstNode = firstNode.nextNode;
-                secondNode = secondNode.nextNode.nextNode;
-                if (firstNode == secondNode) {
-                    //到相遇点重置一个指针
-                    firstNode = header;
-                    break;
-                }
-            }
-
-            //存在相遇点到入环点的距离和头节点到入环点的距离相等
-            while (secondNode != null && secondNode.nextNode != null) {
-                firstNode = firstNode.nextNode;
-                secondNode = secondNode.nextNode;
-                if (firstNode == secondNode) {
-                    insertCycle = firstNode;
-                    break;
-                }
-            }
-        }
-        return insertCycle;
     }
 }
