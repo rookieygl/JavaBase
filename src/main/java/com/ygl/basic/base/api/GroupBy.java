@@ -1,4 +1,4 @@
-package com.ygl.basic.collection.api;
+package com.ygl.basic.base.api;
 
 import java.util.ArrayList;
 import java.util.HashMap;
