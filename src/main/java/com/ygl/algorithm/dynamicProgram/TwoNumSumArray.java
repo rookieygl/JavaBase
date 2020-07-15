@@ -7,6 +7,13 @@ package com.ygl.algorithm.dynamicProgram;
  * @DESC: rookie stronger
  **/
 public class TwoNumSumArray {
+    public static void main(String[] args) {
+        int[] values = new int[]{3, 7, 1, 3, 9};
+        int rodLength = values.length;
+
+        System.out.println("Max rod value: " + getValue(values, rodLength));
+    }
+
     static int getValue(int[] values, int rodLength) {
         int[] subSolutions = new int[rodLength + 1];
 
@@ -17,12 +24,5 @@ public class TwoNumSumArray {
             subSolutions[i] = tmpMax;
         }
         return subSolutions[rodLength];
-    }
-
-    public static void main(String[] args) {
-        int[] values = new int[]{3, 7, 1, 3, 9};
-        int rodLength = values.length;
-
-        System.out.println("Max rod value: " + getValue(values, rodLength));
     }
 }

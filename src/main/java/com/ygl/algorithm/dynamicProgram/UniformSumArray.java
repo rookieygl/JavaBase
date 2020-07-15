@@ -20,6 +20,29 @@ public class UniformSumArray {
      * @param data
      * @return
      */
+    public static int splitArrDynamic(int[] data) {
+        int sum = 0;
+        for (int anInt : data) {
+            sum += anInt;
+        }
+        int count = sum / 2;
+
+        int[] dp = new int[data.length];
+        for (int i = 0; i < data.length; i++) {
+                // 状态转移方程
+                dp[i] = Math.max(dp[i - 1], dp[i - 1] + dp[i]);
+                System.out.println("物品:" + Arrays.toString(dp) + "价值:[" + dp[i] + "]");
+        }
+
+        return 0;
+    }
+
+    /**
+     * 等分数组
+     *
+     * @param data
+     * @return
+     */
     public static int splitArr(int[] data) {
         int sum = 0;
         for (int anInt : data) {
@@ -29,12 +52,12 @@ public class UniformSumArray {
 
         int[][] dp = new int[data.length][data.length];
         for (int i = 0; i < data.length; i++) {
-            int[] tmpArr = new int[data.length+1];
-            tmpArr[i]=data[i];
+            int[] tmpArr = new int[data.length + 1];
+            tmpArr[i] = data[i];
             int tmpSum = 0;
             for (int j = data.length - 1; j > 0; j--) {
-                tmpArr[i+1] = data[j];
-                if (i==j){
+                tmpArr[i + 1] = data[j];
+                if (i == j) {
                     continue;
                 }
                 tmpSum = tmpSum + data[i] + data[j];
@@ -47,6 +70,7 @@ public class UniformSumArray {
         printDouoArr(dp);
         return 0;
     }
+
 
     /**
      * 输出数组和
