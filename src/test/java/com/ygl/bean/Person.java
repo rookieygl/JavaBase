@@ -6,23 +6,11 @@ package com.ygl.bean;
  * @Date: 2020/6/16 16:13
  * @Desc:
  */
-public class Person {
+public abstract class Person {
 	private String name;
 	private int age;
 
-	public String getName() {
-		return name;
-	}
+	public abstract String getName();
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
+	protected Person (){}
 }
