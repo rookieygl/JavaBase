@@ -1,4 +1,4 @@
-package com.ygl.basic.algorithm.dp;
+package com.ygl.algorithm.dynamicProgram;
 
 /**
  * @Project: ydzy-report

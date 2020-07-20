@@ -35,11 +35,7 @@ public class TreeTrave {
 		for (int value : nodeArr) {
 			treeTest.insertNode(root, value);
 		}
-		//treeTest.modOrder(root);
-		TreeMap treeMap = new TreeMap();
-		treeMap.put(1,1);
-		treeMap.put(2,2);
-		treeMap.put(3,3);
+		treeTest.modOrder(root);
 	}
 
 	/**
