@@ -31,10 +31,11 @@ public class StackTreeSort {
     public static void heapSort(int[] array) {
         //把无序数组构建最大堆
         //寻找非叶子节点，只有非叶子节点需要调整
-        //根据二叉树的特性，非叶子节点是n/2
+        //根据二叉树的特性，非叶子节点个数是n/2
         for (int i = (array.length) / 2 - 1; i >= 0; i--) {
             downAdjust(array, i, array.length);
         }
+
         //输出最大堆
         System.out.println(Arrays.toString(array));
 

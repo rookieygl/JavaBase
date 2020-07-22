@@ -9,6 +9,7 @@ import java.util.TreeMap;
  * @Author: ygl
  * @Date: 2020/5/22 11:44
  * @Desc:
+ * 遍历树
  */
 @Slf4j
 
@@ -32,9 +33,12 @@ public class TreeTrave {
 		TreeTrave treeTest = new TreeTrave();
 		int[] nodeArr = new int[]{5, 1, 2, 3, 4};
 		root = new Node();
+
+		//添加节点，未做树平衡操作，注意添加节点顺序
 		for (int value : nodeArr) {
 			treeTest.insertNode(root, value);
 		}
+		//中序遍历
 		treeTest.modOrder(root);
 	}
 

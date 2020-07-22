@@ -7,6 +7,9 @@ import java.util.Arrays;
  * @Author: rookie_ygl
  * @DATE: 2020/6/21 20:51
  * @DESC: rookie stronger
+ *
+ * 背包问题
+ *
  **/
 public class KnapSpace {
     static int value[] = {0, 5, 3, 4};       // 每个宝石的体积,这里前面的0是为了后面表示方便，即V[1]表示为第一个宝石的体积，下同
@@ -29,7 +32,9 @@ public class KnapSpace {
                 }
             }
         }
+
         print_array(dp);
+
         findBest(value.length - 1, capacity);
     }
 
