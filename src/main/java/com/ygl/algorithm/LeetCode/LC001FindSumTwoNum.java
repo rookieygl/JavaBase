@@ -1,4 +1,4 @@
-package com.ygl.algorithm.dynamicProgram;
+package com.ygl.algorithm.LeetCode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,9 +7,9 @@ import java.util.Map;
  * @Project: ydzy-report
  * @Author: ygl
  * @Date: 2020/7/22 11:28
- * @Desc: 获取 两数之和的值
+ * @Desc: 获取 两数之和的最大值
  */
-public class FindSumTwoNum {
+public class LC001FindSumTwoNum {
 	public static void main(String[] args) {
 		int[] nums = new int[]{2, 7, 11, 15};
 		int target = 9;

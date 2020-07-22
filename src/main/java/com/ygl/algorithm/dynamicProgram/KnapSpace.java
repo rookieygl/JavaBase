@@ -7,13 +7,12 @@ import java.util.Arrays;
  * @Author: rookie_ygl
  * @DATE: 2020/6/21 20:51
  * @DESC: rookie stronger
- *
+ * <p>
  * 背包问题
- *
  **/
 public class KnapSpace {
-    static int value[] = {0, 5, 3, 4};       // 每个宝石的体积,这里前面的0是为了后面表示方便，即V[1]表示为第一个宝石的体积，下同
-    static int weight[] = {0, 20, 10, 12};    // 每个宝石的价值
+    static int[] value = {0, 5, 3, 4};       // 每个宝石的体积,这里前面的0是为了后面表示方便，即V[1]表示为第一个宝石的体积，下同
+    static int[] weight = {0, 20, 10, 12};    // 每个宝石的价值
     static int capacity = 10;    // 书包容量
     static int number = value.length - 1;     // 宝石个数
     static int dp[][] = new int[value.length][capacity + 1];    // 状态数组
@@ -34,15 +33,17 @@ public class KnapSpace {
         }
 
         print_array(dp);
-
-        findBest(value.length - 1, capacity);
     }
 
-    // 打印保存数据的二位数组
+    /**
+     * 打印保存数据的二位数组
+     *
+     * @param Arr
+     */
     public static void print_array(int[][] Arr) {
         for (int i = 1; i < Arr.length; i++) {
             for (int j = 1; j < Arr[i].length; j++) {
-                System.out.print("[" + i + "]" + "[" + j + "]" + "当前价值" + Arr[i][j] + "\number");
+                System.out.print("[" + i + "]" + "[" + j + "]" + "当前价值" + Arr[i][j] + "\n");
             }
             System.out.println();
         }
