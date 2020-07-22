@@ -9,28 +9,35 @@ import java.util.Arrays;
  * @Desc:
  */
 public class BinarySearch {
-	public static void main(String[] args) {
-		System.out.println(Arrays.toString(args));
-		int[] arr = {2,2,2,1};
+    public static void main(String[] args) {
+        int[] arr = {2, 2, 2, 1};
+        System.out.println(binarySearch(arr, 0, arr.length - 1, 2));
+    }
 
-		//System.out.println(binarySearch(arr, 0, arr.length - 1, 2));
-		System.out.println(Arrays.binarySearch(arr, 2));
-	}
-	private static int binarySearch(int[] a, int fromIndex, int toIndex, long key){
-		int low = fromIndex;
-		int high = toIndex - 1;
+    /**
+     * 二分查找
+     *
+     * @param a
+     * @param fromIndex
+     * @param toIndex
+     * @param key
+     * @return
+     */
+    private static int binarySearch(int[] a, int fromIndex, int toIndex, long key) {
+        int low = fromIndex;
+        int high = toIndex - 1;
 
-		while (low <= high) {
-			int mid = (low + high)/2;
-			long midVal = a[mid];
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            long midVal = a[mid];
 
-			if (midVal < key)
-				low = mid + 1;
-			else if (midVal > key)
-				high = mid - 1;
-			else
-				return mid; // key found
-		}
-		return -(low + 1);  // key not found.
-	}
+            if (midVal < key)
+                low = mid + 1;
+            else if (midVal > key)
+                high = mid - 1;
+            else
+                return mid; // key found
+        }
+        return -(low + 1);  // key not found.
+    }
 }
