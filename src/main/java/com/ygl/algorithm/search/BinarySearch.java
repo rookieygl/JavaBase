@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @Author: ydzy-report
  * @Author: ygl
  * @Date: 2020/5/21 18:23
- * @Desc:
+ * @Desc: 二分查找
  */
 public class BinarySearch {
     public static void main(String[] args) {
