@@ -4,7 +4,8 @@ package com.ygl.algorithm.dynamicProgram;
  * @Project: ydzy-report
  * @Author: ygl
  * @Date: 2020/7/22 16:53
- * @Desc:
+ * @Desc: 查找中位数
+ *
  */
 public class FindMedianSortedArrays {
 	public static void main(String[] args) {
@@ -12,6 +13,13 @@ public class FindMedianSortedArrays {
 		System.out.println(medianSortedArrays);
 	}
 
+	/**
+	 * 查找中位数
+	 *
+	 * @param nums1
+	 * @param nums2
+	 * @return
+	 */
 	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
 		int n = nums1.length;
 		int m = nums2.length;
