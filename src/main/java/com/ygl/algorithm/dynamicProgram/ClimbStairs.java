@@ -19,11 +19,27 @@ public class ClimbStairs {
 	 * @param n 楼梯个数
 	 * @return 上楼方式
 	 */
+	private static int climbStairsRecursive(int n) {
+		if (n < 3) {
+			return n;
+		}
+		//这里递归的公式；由步数决定，一次只能走一步或者两步，那么到最后一个台阶前就有n-1和n-2；两种情况的和
+		return climbStairsRecursive(n - 1) + climbStairsRecursive(n - 2);
+	}
+
+	/**
+	 * 动态规划 时间复杂度O(n),空间复杂度O(n)
+	 *面对指数级增长,递归并不是最优解
+	 *
+	 * @param n 楼梯个数
+	 * @return 上楼方式
+	 */
 	private static int climbStairsDP(int n) {
 		if (n < 3) {
 			return n;
 		}
 
+		//辅助动态数组
 		int[] f = new int[n + 1];
 		f[0] = 1;
 		f[1] = 2;
@@ -36,17 +52,5 @@ public class ClimbStairs {
 		return f[n - 1];
 	}
 
-	/**
-	 * 递归求解 但是面对指数级增长并不是最优解
-	 *
-	 * @param n 楼梯个数
-	 * @return 上楼方式
-	 */
-	private static int climbStairsRecursive(int n) {
-		if (n < 3) {
-			return n;
-		}
-		//这里递归的公式；由步数决定，一次只能走一步或者两步，那么到最后一个台阶前就有n-1和n-2；两种情况的和
-		return climbStairsRecursive(n - 1) + climbStairsRecursive(n - 2);
-	}
+
 }

@@ -12,14 +12,15 @@ import java.util.Stack;
  * 最小栈实现
  **/
 public class MinStack {
-    private Stack<Integer> mainStack = new Stack<>();//主栈
-    private Stack<Integer> minStack = new Stack<>();//辅助最小栈
+    private static Stack<Integer> mainStack = new Stack<>();//主栈
+    private static Stack<Integer> minStack = new Stack<>();//辅助最小栈
 
     public static void main(String[] args) throws Exception {
-        MinStack minStack = new MinStack();
-        System.out.println(minStack.pop());
-        minStack.push(3);
-        minStack.push(4);
+        MinStack.push(3);
+        MinStack.push(4);
+        //出栈
+        System.out.println(MinStack.pop());
+        System.out.println(MinStack.getMin());
     }
 
     /**
@@ -27,7 +28,7 @@ public class MinStack {
      *
      * @param element 入栈元素
      */
-    public void push(int element) {
+    public static void push(int element) {
         mainStack.push(element);
 
         //如果辅助栈为空，或者新元素小于等于辅助栈栈顶，将新元素压入辅助栈
@@ -41,11 +42,12 @@ public class MinStack {
      *
      * @return
      */
-    public Integer pop() throws Exception {
+    public static Integer pop() throws Exception {
         //如果出栈元素和辅助栈栈顶元素相等，辅助栈出栈
         if (mainStack.empty()) {
             throw new Exception("");
         }
+        //存在相同元素，最小栈也要出栈一个元素
         if (mainStack.peek().equals(minStack.peek())) {
             minStack.pop();
         }
@@ -59,7 +61,7 @@ public class MinStack {
      * @return
      * @throws Exception
      */
-    public int getMin() throws Exception {
+    public static int getMin() throws Exception {
         //只要主栈有值，最小栈也有值
         if (mainStack.empty()) {
             throw new Exception("");
