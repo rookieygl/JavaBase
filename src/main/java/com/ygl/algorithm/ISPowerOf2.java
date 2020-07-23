@@ -1,4 +1,4 @@
-package com.ygl.algorithm.IsPowerOf2;
+package com.ygl.algorithm;
 
 /**
  * @Project open sources

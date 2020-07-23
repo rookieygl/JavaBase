@@ -65,12 +65,11 @@ public class LC002TwoNumAdd {
 	 * @return
 	 */
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		//定义和链表头结点。值为0
+		//定义和结果的链表头结点。值为0，返回时移除
 		ListNode pre = new ListNode(0);
 
 		//预指针
 		ListNode cur = pre;
-
 
 		int carry = 0; //记录数值相加 溢出的情况
 		while (l1 != null || l2 != null) {

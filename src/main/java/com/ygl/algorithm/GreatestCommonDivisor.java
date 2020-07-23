@@ -1,4 +1,4 @@
-package com.ygl.algorithm.GreatestCommonDivisor;
+package com.ygl.algorithm;
 
 /**
  * @Project open sources
