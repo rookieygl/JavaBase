@@ -7,7 +7,8 @@ import java.util.Map;
  * @Project: ydzy-report
  * @Author: ygl
  * @Date: 2020/7/22 11:28
- * @Desc: 获取 两数之和的最大值
+ * @Desc: 给定一个无序数组和一个值，计算是否存在两个数字之和是该值
+ *          数组中同一个元素不能使用两遍
  */
 public class LC001FindSumTwoNum {
 	public static void main(String[] args) {
