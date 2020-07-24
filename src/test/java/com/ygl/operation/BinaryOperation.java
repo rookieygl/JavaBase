@@ -18,5 +18,6 @@ public class BinaryOperation {
 		//System.out.println(15/10);
 		char c = '4';
 		System.out.println(c>'6');
+		Integer.parseInt("abc");
 	}
 }

@@ -27,7 +27,7 @@ public class LC001FindSumTwoNum {
 	 */
 	public static int[] twoSum(int[] nums, int target) {
 		Map<Integer, Integer> map = new HashMap<>();
-
+		//遍历数值
 		for (int i = 0; i < nums.length; i++) {
 			//获取差值
 			int complement = target - nums[i];
