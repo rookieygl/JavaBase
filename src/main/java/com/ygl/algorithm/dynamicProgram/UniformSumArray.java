@@ -11,56 +11,65 @@ import java.util.Arrays;
 public class UniformSumArray {
     public static void main(String[] args) {
         int[] ints = new int[]{12, 8, 6, 9, 19, 17, 1};
-        splitArr(ints);
+//        splitArr(ints);
+        int i = splitArrDynamic(ints);
+        System.out.println(i);
     }
 
     /**
      * 等分数组
      *
-     * @param data
+     * @param arr 数组
      * @return
      */
-    public static int splitArrDynamic(int[] data) {
-        int sum = 0;
-        for (int anInt : data) {
-            sum += anInt;
-        }
-        int count = sum / 2;
+    public static int splitArrDynamic(int[] arr) {
+        //取等分值
+        int sum = Arrays.stream(arr).sum();
+        sum = sum / 2;
 
-        int[] dp = new int[data.length];
-        for (int i = 0; i < data.length; i++) {
-                // 状态转移方程
-                dp[i] = Math.max(dp[i - 1], dp[i - 1] + dp[i]);
-                System.out.println("物品:" + Arrays.toString(dp) + "价值:[" + dp[i] + "]");
-        }
+        int[][] dp = new int[arr.length + 1][sum + 1];
 
-        return 0;
+        //遍历所有元素
+        for (int i = 1; i < arr.length + 1; ++i) {
+            //最小值是1，那么等分数组最多包含sum.length个元素 决定了内圈循环
+            for (int j = 1; j < sum + 1; ++j) {
+                //能存下该数字
+                if (j - arr[i - 1] >= 0) {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - arr[i - 1]] + arr[i - 1]);
+                    System.out.println("数组:" + Arrays.toString(dp[i]) + ", 最大值:[" + dp[i][j] + "]");
+                }
+            }
+        }
+        
+        System.out.println(dp[arr.length][sum]);
+        return sum - dp[arr.length][sum];
     }
+
 
     /**
      * 等分数组
      *
-     * @param data
+     * @param arr
      * @return
      */
-    public static int splitArr(int[] data) {
+    public static int splitArr(int[] arr) {
         int sum = 0;
-        for (int anInt : data) {
+        for (int anInt : arr) {
             sum += anInt;
         }
         int count = sum / 2;
 
-        int[][] dp = new int[data.length][data.length];
-        for (int i = 0; i < data.length; i++) {
-            int[] tmpArr = new int[data.length + 1];
-            tmpArr[i] = data[i];
+        int[][] dp = new int[arr.length][arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            int[] tmpArr = new int[arr.length + 1];
+            tmpArr[i] = arr[i];
             int tmpSum = 0;
-            for (int j = data.length - 1; j > 0; j--) {
-                tmpArr[i + 1] = data[j];
+            for (int j = arr.length - 1; j > 0; j--) {
+                tmpArr[i + 1] = arr[j];
                 if (i == j) {
                     continue;
                 }
-                tmpSum = tmpSum + data[i] + data[j];
+                tmpSum = tmpSum + arr[i] + arr[j];
                 if (tmpSum > count) {
                     break;
                 }

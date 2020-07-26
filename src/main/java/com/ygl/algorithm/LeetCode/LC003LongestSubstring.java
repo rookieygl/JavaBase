@@ -18,7 +18,7 @@ import java.util.Set;
  */
 public class LC003LongestSubstring {
 	public static void main(String[] args) {
-		int acba = lengthOfLongestSubstringByMap("acbabacd");
+		int acba = lengthOfLongestSubstringByMap("ababad");
 		System.out.println(acba);
 	}
 
@@ -36,11 +36,14 @@ public class LC003LongestSubstring {
 		int left = 0;//滑动指针
 
 		for (int i = 0; i < s.length(); i++) {
-			//存在字符，比较以该字符开头的最长子串
+			//存储字符，只有当遇到相同字符才滑动窗口
 			if (map.containsKey(s.charAt(i))) {
+				//
 				left = Math.max(left, map.get(s.charAt(i)) + 1);
 			}
 			map.put(s.charAt(i), i);
+
+			//当前字符位置和滑动窗口，能确定子串长度和最大子串长度
 			max = Math.max(max, i - left + 1);
 		}
 		return max;
