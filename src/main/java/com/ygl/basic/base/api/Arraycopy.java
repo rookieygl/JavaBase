@@ -1,7 +1,7 @@
 package com.ygl.basic.base.api;
 
 /**
- * @Project: ydzy-report
+ * @Project: open sources
  * @Author: ygl
  * @Date: 2020/7/9 16:03
  * @Desc:

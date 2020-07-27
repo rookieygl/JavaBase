@@ -1,7 +1,7 @@
 package com.ygl.basic.base.staticword;
 
 /**
- * @Project: ydzy-report
+ * @Project: open sources
  * @Author: ygl
  * @Date: 2020/6/12 14:07
  * @Desc:

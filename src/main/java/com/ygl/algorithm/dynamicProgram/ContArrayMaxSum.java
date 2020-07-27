@@ -1,7 +1,7 @@
 package com.ygl.algorithm.dynamicProgram;
 
 /**
- * @Project: ydzy-report
+ * @Project: open sources
  * @Author: ygl
  * @Date: 2020/7/22 10:24
  * @Desc: 连续数组最大和

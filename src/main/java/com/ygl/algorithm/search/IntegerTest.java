@@ -1,7 +1,7 @@
 package com.ygl.algorithm.search;
 
 /**
- * @Author: ydzy-report
+ * @Author: open sources
  * @Author: ygl
  * @Date: 2020/5/12 15:19
  * @Desc:

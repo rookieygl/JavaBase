@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @Project: ydzy-report
+ * @Project: open sources
  * @Author: ygl
  * @Date: 2020/7/24 14:57
  * @Desc: 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
@@ -38,12 +38,14 @@ public class LC003LongestSubstring {
 		for (int i = 0; i < s.length(); i++) {
 			//存储字符，只有当遇到相同字符才滑动窗口
 			if (map.containsKey(s.charAt(i))) {
-				//
+				//滑动窗口记录字符串长度
 				left = Math.max(left, map.get(s.charAt(i)) + 1);
 			}
+			//记录字符出现位置，该位置随着遍历不断改变
 			map.put(s.charAt(i), i);
 
-			//当前字符位置和滑动窗口，能确定子串长度和最大子串长度
+			//当前字符位置和滑动窗口，能确定子串长度
+			//从而获得最大子串
 			max = Math.max(max, i - left + 1);
 		}
 		return max;

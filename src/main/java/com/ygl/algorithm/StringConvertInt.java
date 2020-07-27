@@ -1,7 +1,7 @@
 package com.ygl.algorithm;
 
 /**
- * @Project: ydzy-report
+ * @Project: open sources
  * @Author: ygl
  * @Date: 2020/7/23 16:05
  * @Desc: 将字符串转为数值

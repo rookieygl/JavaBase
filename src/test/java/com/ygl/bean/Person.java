@@ -1,7 +1,7 @@
 package com.ygl.bean;
 
 /**
- * @Project: ydzy-report
+ * @Project: open sources
  * @Author: ygl
  * @Date: 2020/6/16 16:13
  * @Desc:

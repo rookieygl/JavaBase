@@ -2,7 +2,7 @@ package com.ygl.algorithm.search;
 
 
 /**
- * @Author: ydzy-report
+ * @Author: open sources
  * @Author: ygl
  * @Date: 2020/5/21 18:23
  * @Desc: 二分查找

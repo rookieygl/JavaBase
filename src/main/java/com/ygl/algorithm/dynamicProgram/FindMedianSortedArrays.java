@@ -1,7 +1,7 @@
 package com.ygl.algorithm.dynamicProgram;
 
 /**
- * @Project: ydzy-report
+ * @Project: open sources
  * @Author: ygl
  * @Date: 2020/7/22 16:53
  * @Desc: 查找中位数

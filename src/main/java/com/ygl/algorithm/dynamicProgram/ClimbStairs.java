@@ -1,7 +1,7 @@
 package com.ygl.algorithm.dynamicProgram;
 
 /**
- * @Project: ydzy-report
+ * @Project: open sources
  * @Author: ygl
  * @Date: 2020/6/22 10:29
  * @Desc: 爬楼梯问题 一次只能爬一层或者两层

@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
 /**
  * NIO多线程读取大文件
  *
- * @Author: ydzy-report
+ * @Author: open sources
  * @Author: ygl
  * @Date: 2020/5/12 9:31
  * @Desc:
